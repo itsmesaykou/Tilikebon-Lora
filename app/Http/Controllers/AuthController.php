@@ -31,17 +31,13 @@ class AuthController extends Controller
      */
     public function index()
     {
-        $data4 = Suhu::all();
         $data1 = Kelembapan::latestFirst()->first();
         $data2 = Suhu::latestFirst()->first();
         $data3 = Cahaya::latestFirst()->first();
-        $data = User::all();
-        return view('/dashboard', [
-            'data' => $data,
-            'data1' => $data1,
-            'data2' => $data2,
-            'data3' => $data3,
-            'data4' => $data4
+        return view('auth.dashboard', [
+            "data1" => $data1,
+            "data2" => $data2,
+            "data3" => $data3,
         ]);
     
     }
@@ -103,6 +99,12 @@ class AuthController extends Controller
         //
     }
 
+    public function password(Request $request) 
+    {
+        return view('auth.password', [
+
+        ]);
+    }
 
     public function password_action(Request $request)
     {

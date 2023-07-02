@@ -19,34 +19,29 @@ class UserController extends Controller
     public function index()
     {
 
-        $data1 = Kelembapan::latestFirst()->first();
-        $data2 = Suhu::latestFirst()->first();
-        $data3 = Cahaya::latestFirst()->first();
+
         $data = User::all();
-        return view('tables', [
-            'data' => $data,
-            'data1' => $data1,
-            'data2' => $data2,
-            'data3' => $data3
+        return view('auth.user', [
+            'data' => $data
         ]);
     
     }
 
-    public function profile()
+    public function profile(Request $request)
     {
-        $data = User::all();
-        return view('profile', [
-            'data' => $data
-        ]);
+        return view('auth.profile');
     
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function view(User $user, $id)
     {
-        //
+        $data = User::findorfail($id);
+        return view('auth.view.viewProfile', [
+            'data' => $data
+        ]);
     }
 
     /**

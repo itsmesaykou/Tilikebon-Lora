@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use App\Models\Cahaya;
 use App\Models\Suhu;
 use App\Models\Kelembapan;
+use App\Models\User;
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 
@@ -41,6 +42,15 @@ class DatabaseSeeder extends Seeder
             Kelembapan::create([
                 'created_at' => $randomDate,
                 'kelembapan' => $faker->randomNumber(2,99), 
+            ]);
+
+            User::create([
+                'Name' => $faker->name,
+                'Username' => $faker->username,
+                'phone' => $faker->phoneNumber(),
+                'email' => $faker->email(),
+                'password' => '123'
+                
             ]);
         }
     }
