@@ -39,7 +39,7 @@ class UserController extends Controller
     public function view(User $user, $id)
     {
         $data = User::findorfail($id);
-        return view('auth.view.viewProfile', [
+        return view('auth.viewP', [
             'data' => $data
         ]);
     }
@@ -83,6 +83,6 @@ class UserController extends Controller
     {
         $data = User::findorfail($id);
         $data->delete();
-        return redirect('/dashboard/tables')->with('success', 'Berhasil menghapus user');
+        return redirect('/user')->with('success', 'Berhasil menghapus user');
     }
 }

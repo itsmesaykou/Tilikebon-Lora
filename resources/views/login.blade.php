@@ -1,17 +1,4 @@
-<!--
-=========================================================
-* Soft UI Dashboard - v1.0.7
-=========================================================
 
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,7 +38,7 @@
             <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
               <div class="card card-plain mt-8">
                 <div class="card-header pb-0 text-left bg-transparent">
-                  <h3 class="font-weight-bolder text-info text-gradient">Welcome back</h3>
+                  <h3 class="font-weight-bolder text-info text-gradient">Welcome</h3>
                   @if (session('success'))
                   <div class="alert alert-success" role="alert">
                     <p style="font-weight:bold; color:white; text-align:center; margin:auto;">{{ session('success') }}</p>
@@ -67,7 +54,7 @@
                   <p class="mb-0">Enter your username and password to sign in</p>
                 </div>
                 <div class="card-body">
-                  <form role="form" action="/login" method="post">
+                  <form role="form" action="/login/action" method="post">
                     @csrf
                     <label>Username</label>
                     <div class="mb-3">
@@ -82,6 +69,7 @@
                     <div class="text-center">
                       <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Login</button>
                       <a href="/register" class="btn bg-success w-100 mt-4 mb-0" style="color: white;">Register</a>
+                      <a href="/" class="btn bg-danger w-100 mt-4 mb-0" style="color: white;">Back</a>
                     </div>
                   </form>
                 </div>

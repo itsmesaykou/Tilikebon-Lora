@@ -16,6 +16,12 @@ class AuthController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function home()
+    {
+        return view('index', []);
+    }
+
+
     public function register()
     {
         return view('register', []);
@@ -64,7 +70,7 @@ class AuthController extends Controller
             'username' => $request->username,
             'password' => Hash::make($request->password) 
         ]);
-        return redirect('/')->with('success', 'Register berhasil, silakan login!');
+        return redirect('/login')->with('success', 'Register berhasil, silakan login!');
     }
 
     public function login_action(Request $request)

@@ -17,6 +17,20 @@
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table">
+                    <!-- Topbar Search -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <br>
                   <thead>
                     <tr>
                       <th scope="col">#</th>
@@ -56,7 +70,12 @@
                                 Edit
                             </a>
     
-                            <a href="{{ url('/user/delete',$dt->id)  }}" class="btn btn-danger" style="font-size: 13px">
+                            {{-- <a href="" class="btn btn-danger" style="font-size: 13px">
+                                <i class="fa-solid fa-delete-left fa-sm"></i>
+                                Delete
+                            </a> --}}
+
+                            <a href="#" type="button" class="btn btn-danger" style="font-size: 13px" data-toggle="modal" data-target="#exampleModal">
                                 <i class="fa-solid fa-delete-left fa-sm"></i>
                                 Delete
                             </a>
@@ -79,4 +98,25 @@
     </div>
     
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Are You Sure?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <a href="{{ url('/user/delete',$dt->id)  }}" class="btn btn-danger">Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
 @endsection
